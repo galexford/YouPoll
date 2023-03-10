@@ -3,7 +3,7 @@ import { IChoice } from 'react-native-poll';
 export type CreatePollType = {
     prompt: String;
     choices: Array<IChoice>;
-}
+};
 
 export type PollType = {
     key: number;

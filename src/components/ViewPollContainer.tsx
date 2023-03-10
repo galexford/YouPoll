@@ -1,9 +1,4 @@
-import {
-    StyleSheet,
-    SafeAreaView,
-    View,
-    Text,
-} from 'react-native';
+import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import RNPoll, { IChoice } from 'react-native-poll';
 
 interface ViewPollProps {
@@ -12,7 +7,7 @@ interface ViewPollProps {
 }
 
 const ViewPollContainer = (props: ViewPollProps) => {
-    const {prompt, choices} = props;
+    const { prompt, choices } = props;
 
     return (
         <SafeAreaView>

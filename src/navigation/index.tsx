@@ -15,9 +15,14 @@ const AppContainer = () => {
                     component={HomeScreen}
                     options={({ navigation, route }) => ({
                         headerRight: () => (
-                          <Button title={screenMap.CreatePoll} onPress={() => navigation.navigate(screenMap.CreatePoll)} />
+                            <Button
+                                title={screenMap.CreatePoll}
+                                onPress={() =>
+                                    navigation.navigate(screenMap.CreatePoll)
+                                }
+                            />
                         ),
-                      })}
+                    })}
                 />
                 <Stack.Screen
                     name={screenMap.CreatePoll}

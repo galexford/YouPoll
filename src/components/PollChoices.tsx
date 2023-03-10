@@ -10,15 +10,15 @@ import {
 import { AntDesign, Feather } from '@expo/vector-icons';
 
 interface PollChoicesProps {
-    onPollUpdate: (choices: Array<string>) => void
+    onPollUpdate: (choices: Array<string>) => void;
 }
 
 const PollChoices = (props: PollChoicesProps) => {
-    const {onPollUpdate} = props;
-    const [choices, setChoices] = React.useState(["", ""]);
+    const { onPollUpdate } = props;
+    const [choices, setChoices] = React.useState(['', '']);
 
     const onClickAdd = () => {
-        setChoices((prev) => [...prev, ""]);
+        setChoices((prev) => [...prev, '']);
     };
 
     const onClickDelete = () => {};

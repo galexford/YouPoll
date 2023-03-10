@@ -16,8 +16,8 @@ const CreatePollScreen = () => {
     const [prompt, setPrompt] = React.useState('');
     const [poll, setPoll] = React.useState<CreatePollType | null>(null);
 
-    const {onClickCreatePoll} = useCreatePollController();
-    
+    const { onClickCreatePoll } = useCreatePollController();
+
     const handlePollUpdate = (choicesStr: Array<string>) => {
         // Translating choices inputs to IChoice type
         const choices: Array<IChoice> = [];
@@ -25,11 +25,12 @@ const CreatePollScreen = () => {
             const choice = {
                 id: i,
                 votes: 0,
-                choice: choiceStr}
+                choice: choiceStr,
+            };
             choices.push(choice);
-        })
-        setPoll({prompt, choices});
-    }
+        });
+        setPoll({ prompt, choices });
+    };
 
     return (
         <SafeAreaView>
@@ -43,7 +44,7 @@ const CreatePollScreen = () => {
                 title="Create Poll"
                 onPress={() => onClickCreatePoll(poll)}
             />
-            <PollChoices onPollUpdate={handlePollUpdate}/>
+            <PollChoices onPollUpdate={handlePollUpdate} />
         </SafeAreaView>
     );
 };
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
         height: 40,
         margin: 12,
         padding: 10,
-        borderBottomWidth: 1
+        borderBottomWidth: 1,
     },
     pollChoicesContainer: {
         marginLeft: 45,

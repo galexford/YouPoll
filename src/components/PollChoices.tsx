@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import {
     SafeAreaView,
     View,
@@ -9,19 +9,25 @@ import {
 } from 'react-native';
 import { AntDesign, Feather } from '@expo/vector-icons';
 
-const PollChoices = () => {
-    const [choices, setChoices] = React.useState([null, null]);
+interface PollChoicesProps {
+    onPollUpdate: (choices: Array<string>) => void
+}
 
-    const onClickAdd = (i) => {
-        setChoices((prev) => [...prev, null]);
+const PollChoices = (props: PollChoicesProps) => {
+    const {onPollUpdate} = props;
+    const [choices, setChoices] = React.useState(["", ""]);
+
+    const onClickAdd = () => {
+        setChoices((prev) => [...prev, ""]);
     };
 
-    const onClickDelete = (i) => {};
+    const onClickDelete = () => {};
 
-    const onChangeText = (text, i) => {
+    const onChangeText = (text: string, i: number) => {
         const newChoices = [...choices];
         newChoices[i] = text;
         setChoices(newChoices);
+        onPollUpdate(choices);
     };
 
     return (
@@ -43,12 +49,12 @@ const PollChoices = () => {
                                 />
                                 <View style={styles.letterCountContainer}>
                                     <Text style={styles.letterCount}>
-                                        {25 - (choice ? choice.length : 0)}
+                                        {25 - (choice ? choices.length : 0)}
                                     </Text>
                                 </View>
                             </View>
                             {choices.length > 1 && i != choices.length - 1 && (
-                                <Pressable onPress={() => onClickDelete(i)}>
+                                <Pressable onPress={() => onClickDelete()}>
                                     <Feather
                                         name="x-circle"
                                         size={24}
@@ -59,7 +65,7 @@ const PollChoices = () => {
                             {i > 0 && i == choices.length - 1 && i < 5 && (
                                 <Pressable
                                     style={styles.plusContainer}
-                                    onPress={() => onClickAdd(i)}
+                                    onPress={() => onClickAdd()}
                                 >
                                     <AntDesign
                                         name="pluscircleo"

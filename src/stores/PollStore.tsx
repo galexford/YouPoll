@@ -1,4 +1,4 @@
-import { PollsType } from '../types/genericTypes';
+import { PollsType } from '../../types/genericTypes';
 
 const PollStore: PollsType = [
     {

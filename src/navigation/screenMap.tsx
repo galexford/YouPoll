@@ -1,4 +1,4 @@
 export const screenMap = {
     Home: 'Home',
-    CreatePoll: 'CreatePoll',
+    CreatePoll: 'Create Poll',
 };

@@ -1,30 +1,26 @@
 import { StyleSheet, View, Text } from 'react-native';
 
-const Title = ({titleText}) => {
-    return(
+const Title = ({ titleText }) => {
+    return (
         <View style={styles.container}>
             <Text style={styles.baseText}>
                 <Text style={styles.titleText}>{titleText}</Text>
             </Text>
         </View>
-        
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
-        paddingTop: 75,
+        paddingTop: 10,
     },
-    baseText: {
-        fontFamily: 'Cochin',
-    },
-   titleText :{
+    baseText: {},
+    titleText: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#8b6969'
-   }
-  });
+        color: '#000',
+    },
+});
 
 export default Title;
